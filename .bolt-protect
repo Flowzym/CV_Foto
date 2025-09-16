@@ -1,0 +1,7 @@
+Bitte public/models/*.onnx niemals löschen/überschreiben.
+
+Diese Dateien enthalten wichtige ML-Modelle:
+- u2netp.onnx - U²-Net Portrait Modell für Bildsegmentierung
+- modnet.onnx - MODNet Modell für Hintergrundentfernung
+
+Diese Modelle sind essentiell für die Funktionalität der Anwendung und dürfen nicht verändert werden.
