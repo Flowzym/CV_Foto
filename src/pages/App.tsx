@@ -9,12 +9,12 @@ import { setupOrt, logOrtDiag } from '../utils/ort';
 
 function App() {
   useEffect(() => {
-    // Initialize ONNX Runtime on app start - no throws, always fallback
+    // Initialize ONNX Runtime on app start - conservative, no throws
     const initOrt = async () => {
       const ortInfo = await setupOrt();
       
       if (ortInfo.filesMissing.length > 0) {
-        console.warn('⚠️ ORT fällt auf single-thread wasm zurück');
+        console.warn('⚠️ ORT files missing, may fall back to CDN or fail gracefully');
       }
       
       // Log diagnostics in development
