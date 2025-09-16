@@ -6,7 +6,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "sync:ort": "node scripts/sync-ort.mjs"
+    "sync:ort": "node scripts/sync-ort.mjs",
+    "ls:ort": "ls -la public/ort || dir public\\ort",
+    "postinstall": "node scripts/sync-ort.mjs"
   },
   "dependencies": {
     "react": "^18.2.0",
