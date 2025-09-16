@@ -5,14 +5,25 @@ import { BGPicker } from '../components/BGPicker';
 import { ExportBar } from '../components/ExportBar';
 import { ProgressBar } from '../components/ProgressBar';
 import { Diagnostics } from '../components/Diagnostics';
-import { setupOrt } from '../utils/ort';
+import { setupOrt, logOrtDiag } from '../utils/ort';
 
 function App() {
   useEffect(() => {
-    // Initialize ONNX Runtime on app start
-    setupOrt().catch(error => {
-      console.error('ORT setup failed, but app will continue:', error);
-    });
+    // Initialize ONNX Runtime on app start - no throws, always fallback
+    const initOrt = async () => {
+      const ortInfo = await setupOrt();
+      
+      if (ortInfo.filesMissing.length > 0) {
+        console.warn('⚠️ ORT fällt auf single-thread wasm zurück');
+      }
+      
+      // Log diagnostics in development
+      if (import.meta.env.DEV) {
+        logOrtDiag();
+      }
+    };
+    
+    initOrt();
   }, []);
 
   return (
