@@ -17,6 +17,22 @@ function App() {
         </div>
       </header>
 
+      {/* Step Progress */}
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-4">
+            {[1, 2, 3, 4, 5].map((step) => (
+              <div key={step} className="flex items-center">
+                <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-sm font-medium">
+                  {step}
+                </div>
+                {step < 5 && <div className="w-16 h-0.5 bg-gray-200 mx-2" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -1,4 +1,4 @@
-Bitte public/models/*.onnx niemals löschen/überschreiben.
+Do not touch public/models/*.onnx
 
 Diese Dateien enthalten wichtige ML-Modelle:
 - u2netp.onnx - U²-Net Portrait Modell für Bildsegmentierung

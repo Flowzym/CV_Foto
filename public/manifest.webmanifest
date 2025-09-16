@@ -1,0 +1,16 @@
+{
+  "name": "CV-Photo Studio",
+  "short_name": "CV Studio",
+  "description": "Professional CV photo editing with AI background removal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
