@@ -1,11 +1,20 @@
+import { useEffect } from 'react';
 import { UploadArea } from '../components/UploadArea';
 import { Cropper } from '../components/Cropper';
 import { BGPicker } from '../components/BGPicker';
 import { ExportBar } from '../components/ExportBar';
 import { ProgressBar } from '../components/ProgressBar';
 import { Diagnostics } from '../components/Diagnostics';
+import { setupOrt } from '../utils/ort';
 
 function App() {
+  useEffect(() => {
+    // Initialize ONNX Runtime on app start
+    setupOrt().catch(error => {
+      console.error('ORT setup failed, but app will continue:', error);
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
